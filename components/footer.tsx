@@ -274,31 +274,18 @@ export default function Footer() {
               >
                 DR. SHRADDHA&apos;S SHREE CLINIC
               </p>
-              <span
-                style={{
-                  width: '4px', height: '4px', borderRadius: '50%',
-                  background: 'var(--venturi-coral)', display: 'inline-block',
-                }}
-              />
-              <div className="flex items-center gap-1.5">
+            </div>
+            <div className="flex items-center gap-1.5">
                 <Heart size={11} style={{ color: 'var(--venturi-coral)' }} />
                 <span
                   className="font-body"
                   style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.38)' }}
                 >
-                  Putting People First Since Day One
+                  Demo redesign created by Ojas Bhosale. Not official website.
                 </span>
-              </div>
             </div>
-            <p
-              className="font-body m-0"
-              style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.28)', textAlign: 'center' }}
-            >
-              &copy; 2026 SHREE Physiotherapy &amp; Rehabilitation Clinic. All rights reserved.
-            </p>
           </div>
         </div>
-
       </div>
     </footer>
   );

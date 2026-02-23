@@ -3,10 +3,10 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const contactCards = [
-  { icon: Phone, label: 'Call Us',  value: '+91 88558 66640',         sub: 'Mon – Sat, 9am – 7pm',       href: 'tel:8855866640' },
+  { icon: Phone, label: 'Call Us',  value: '+91 88558 66640',         sub: 'Mon – Sat, 10am – 9pm',       href: 'tel:8855866640' },
   { icon: Mail,  label: 'Email Us', value: 'contact@shreephysio.com', sub: 'We reply within 24 hours',    href: 'mailto:contact@shreephysio.com' },
   { icon: MapPin,label: 'Find Us',  value: 'Baramati, Maharashtra 413102',  sub: 'Home visits also available',  href: '#' },
-  { icon: Clock, label: 'Hours',    value: 'Mon – Sat: 9am – 7pm',    sub: 'Sunday by appointment',       href: '#' },
+  { icon: Clock, label: 'Hours',    value: 'Mon – Sat: 10am – 9pm',    sub: 'Sunday by appointment',       href: '#' },
 ];
 
 export default function Contact() {
