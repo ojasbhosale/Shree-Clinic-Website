@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import { Phone, ChevronDown, Star, Award } from 'lucide-react';
+import { MessageCircle, ChevronDown, Star, Award } from 'lucide-react';
 
 const specialisations = [
   { label: 'Neuro Rehabilitation', sub: 'Stroke \u00B7 Parkinson\u2019s \u00B7 CP' },
@@ -115,8 +115,13 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-6 animate-fade-up anim-both animation-delay-[950ms]" style={{ marginBottom: '3rem' }}>
-            <a href="tel:8855866640" className="btn-coral font-body">
-              <Phone size={16} />
+            <a
+              href="https://wa.me/918855866640"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-coral font-body flex items-center justify-center gap-2"
+            >
+              <MessageCircle size={16} />
               Book an Appointment
             </a>
             <Link href="#services" className="btn-ghost-white font-body">
