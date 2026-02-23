@@ -74,7 +74,7 @@ export default function Hero() {
           {/* Eyebrow badge */}
           <div className="badge-coral animate-fade-up anim-both animation-delay-300">
             <span className="badge-dot" />
-            Trusted Neuro Rehabilitation Specialists
+            Trusted Neuro Specialists
           </div>
 
           {/* Headline */}
@@ -119,7 +119,7 @@ export default function Hero() {
               <Phone size={16} />
               Book an Appointment
             </a>
-            <Link href="#about" className="btn-ghost-white font-body">
+            <Link href="#services" className="btn-ghost-white font-body">
               <span className="btn-bar" />
               Explore our services
             </Link>

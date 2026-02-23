@@ -463,3 +463,205 @@
   .anim-both   { animation-fill-mode: both; }
   .anim-forwards { animation-fill-mode: forwards; }
 }
+
+/* ── Section Background System ───────────────────────────────────── */
+/*
+   A cohesive alternating background palette so every section feels
+   distinct yet part of the same premium design language.
+
+   Usage:  <section class="section-bg-cream"> ... </section>
+
+   Palette flow:
+     Hero       → Video (handled in hero.tsx)
+     About      → .section-bg-cream    (warm textured cream)
+     Info       → .section-bg-white    (clean white + dot grid)
+     Services   → .section-bg-dark     (deep navy — dramatic contrast)
+     Reviews    → .section-bg-pearl    (soft pearl + editorial watermark)
+     Contact    → .section-bg-mesh     (warm gradient mesh blobs)
+     Footer     → dark (handled in footer.tsx)
+*/
+
+/* ── 1. Warm Cream — About ─────────────────────────────────────── */
+.section-bg-cream {
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 60% at 90% 10%,  rgba(245,101,101,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 90%,  rgba(237,137,54,0.08)  0%, transparent 55%),
+    radial-gradient(ellipse 100% 80% at 50% 50%, rgba(255,248,240,1)    0%, #fff9f4     100%);
+}
+/* Fine grain noise overlay */
+.section-bg-cream::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+/* Diagonal decorative stripe */
+.section-bg-cream::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40%;
+  height: 100%;
+  pointer-events: none;
+  
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 48px,
+    rgba(245,101,101,0.025) 48px,
+    rgba(245,101,101,0.025) 49px
+  );
+}
+
+.section-bg-white {
+  position: relative;
+  background:
+    radial-gradient(ellipse 70% 50% at 5%  20%,  rgba(237,137,54,0.12)  0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 95% 80%,  rgba(245,101,101,0.12) 0%, transparent 55%),
+    #ffffff;
+}
+.section-bg-white::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(74,85,104,0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  /* Optional: remove mask for more visibility */
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+/* ── 3. Deep Navy — Services ───────────────────────────────────── */
+.section-bg-dark {
+  position: relative;
+  background:
+    radial-gradient(ellipse 55% 50% at 90%  10%, rgba(245,101,101,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 40% at 5%   85%, rgba(237,137,54,0.10)  0%, transparent 55%),
+    radial-gradient(ellipse 80% 70% at 50%  50%, #1e2836 0%, #1A202C    100%);
+}
+/* Dot grid on dark */
+.section-bg-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+/* Large watermark circle top-right */
+.section-bg-dark::after {
+  content: '';
+  position: absolute;
+  top: -8rem; right: -8rem;
+  width: 30rem; height: 30rem;
+  border-radius: 50%;
+  border: 1px solid rgba(245,101,101,0.08);
+  pointer-events: none;
+}
+
+/* ── 4. Pearl + Watermark — Reviews ────────────────────────────── */
+.section-bg-pearl {
+  position: relative;
+  background:
+    radial-gradient(ellipse 65% 55% at 8%  15%, rgba(245,101,101,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 45% at 92% 85%, rgba(237,137,54,0.07)  0%, transparent 55%),
+    radial-gradient(ellipse 120% 80% at 50% 0%,  #f8f5f2              0%, #ffffff    60%, #fdfbf9 100%);
+}
+/* Large typographic watermark */
+.section-bg-pearl::before {
+  content: '\201C';
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(16rem, 25vw, 22rem);
+  line-height: 1;
+  color: rgba(245,101,101,0.04);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+/* Subtle horizontal rule fade lines */
+.section-bg-pearl::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 79px,
+    rgba(74,85,104,0.03) 79px,
+    rgba(74,85,104,0.03) 80px
+  );
+}
+
+/* ── 5. Warm Mesh — Contact ────────────────────────────────────── */
+.section-bg-mesh {
+  position: relative;
+  background:
+    radial-gradient(ellipse 60% 55% at 0%   0%,   rgba(245,101,101,0.1)  0%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 100% 100%,  rgba(237,137,54,0.1)  0%, transparent 55%),
+    radial-gradient(ellipse 70% 60% at 50%  50%,   rgba(255,244,235,0.9) 0%, transparent 70%),
+    linear-gradient(160deg, #fffaf6 0%, #ffffff 50%, #fdf8f4 100%);
+}
+.section-bg-mesh::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 1;
+  background-image:
+    radial-gradient(rgba(245,101,101,0.12) 1px, transparent 1px),
+    radial-gradient(rgba(237,137,54,0.08)  1px, transparent 1px);
+  background-size: 40px 40px, 20px 20px;
+  background-position: 0 0, 10px 10px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 30%, transparent 90%);
+}
+/* Flowing SVG blob top-right decoration */
+.section-bg-mesh::after {
+  content: '';
+  position: absolute;
+  top: -4rem; right: -4rem;
+  width: 28rem; height: 28rem;
+  border-radius: 40% 60% 55% 45% / 45% 55% 60% 40%;
+  background: radial-gradient(circle, rgba(245,101,101,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float 12s ease-in-out infinite;
+}
+
+/* ── Shared: ensure children render above pseudo-elements ──────── */
+.section-bg-cream > *,
+.section-bg-white > *,
+.section-bg-dark  > *,
+.section-bg-pearl > *,
+.section-bg-mesh  > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Dark section text overrides ──────────────────────────────── */
+.section-bg-dark .section-title    { color: white; }
+.section-bg-dark .section-subtitle { color: rgba(255,255,255,0.65); }
+.section-bg-dark .badge-coral-light {
+  background: rgba(245,101,101,0.15);
+  border-color: rgba(245,101,101,0.3);
+  color: rgba(255,255,255,0.85);
+}
+.section-bg-dark .card-base {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.08);
+  color: white;
+}
+.section-bg-dark .card-base:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(245,101,101,0.25);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
